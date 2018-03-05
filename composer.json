@@ -1,0 +1,14 @@
+{
+    "name": "kronos/regroup",
+    "description": "Utility classes to regroup elements in sets",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Kronos\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.7"
+    },
+    "license": "MIT"
+}
