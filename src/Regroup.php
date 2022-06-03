@@ -4,7 +4,12 @@ namespace Kronos;
 
 class Regroup
 {
-    public function regroupIdenticalElements($array, callable $comparisonFunction)
+    /**
+     * @return array[]
+     *
+     * @psalm-return array<non-empty-list<mixed>>
+     */
+    public function regroupIdenticalElements(array $array, callable $comparisonFunction): array
     {
         $sets = [];
 
@@ -36,7 +41,12 @@ class Regroup
         return $sets;
     }
 
-    public function regroupByHash($array, callable $hashFunction)
+    /**
+     * @return array[]
+     *
+     * @psalm-return list<list<mixed>>
+     */
+    public function regroupByHash(array $array, callable $hashFunction): array
     {
         $sets = [];
 
