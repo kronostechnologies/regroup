@@ -4,7 +4,12 @@ namespace Kronos;
 
 class Regroup
 {
-    public function regroupIdenticalElements($array, callable $comparisonFunction)
+    /**
+     * @return array[]
+     *
+     * @psalm-return array<non-empty-list<mixed>>
+     */
+    public function regroupIdenticalElements(array $array, callable $comparisonFunction): array
     {
         $sets = [];
 
@@ -16,14 +21,13 @@ class Regroup
                         if ($matchedSet === false) {
                             $sets[$setIndex][] = $element;
                             $matchedSet = $setIndex;
-                            break;
                         } else {
                             foreach ($set as $mergedSetMember) {
                                 $sets[$matchedSet][] = $mergedSetMember;
                             }
                             unset($sets[$setIndex]);
-                            break;
                         }
+                        break;
                     }
                 }
             }
@@ -36,7 +40,12 @@ class Regroup
         return $sets;
     }
 
-    public function regroupByHash($array, callable $hashFunction)
+    /**
+     * @return array[]
+     *
+     * @psalm-return list<list<mixed>>
+     */
+    public function regroupByHash(array $array, callable $hashFunction): array
     {
         $sets = [];
 

@@ -3,8 +3,9 @@
 namespace Kronos\Tests;
 
 use Kronos\Regroup;
+use PHPUnit\Framework\TestCase;
 
-class RegroupTest extends \PHPUnit_Framework_TestCase
+class RegroupTest extends TestCase
 {
     const FIRST_ELEMENT = 'firstElement';
     const SECOND_ELEMENT = 'secondElement';
@@ -17,12 +18,12 @@ class RegroupTest extends \PHPUnit_Framework_TestCase
      */
     private $regroup;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->regroup = new Regroup();
     }
 
-    public function test_UnmatchedElements_regroupIdenticalElements_ShouldReturnASetForEachElements()
+    public function test_UnmatchedElements_regroupIdenticalElements_ShouldReturnASetForEachElements(): void
     {
         $elements = [
             self::FIRST_ELEMENT,
@@ -47,7 +48,7 @@ class RegroupTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedSets, $regroupedElements);
     }
 
-    public function test_TwoMatchingElements_regroupIdenticalElements_ShouldReturnArrayContainingBothElemenetsInASet()
+    public function test_TwoMatchingElements_regroupIdenticalElements_ShouldReturnArrayContainingBothElemenetsInASet(): void
     {
         $elements = [
             self::FIRST_ELEMENT,
@@ -64,7 +65,7 @@ class RegroupTest extends \PHPUnit_Framework_TestCase
     }
 
     public function test_MatchingElementsInArray_regroupIdenticalElements_ShouldReturnArrayContainingMatchingElementsInSets(
-    )
+    ): void
     {
         $elements = [
             self::FIRST_MATCH,
@@ -97,7 +98,7 @@ class RegroupTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedSets, $regroupedElements);
     }
 
-    public function test_ElementMatchingTwoSets_regroupIdenticalElements_ShouldReturnSetRegroupingMatchingSets()
+    public function test_ElementMatchingTwoSets_regroupIdenticalElements_ShouldReturnSetRegroupingMatchingSets(): void
     {
         $elements = [];
 
@@ -133,7 +134,7 @@ class RegroupTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedSets, $regroupedElements);
     }
 
-    public function test_NonMatchingElements_regroupByHash_ShouldReturnASetForEachElement()
+    public function test_NonMatchingElements_regroupByHash_ShouldReturnASetForEachElement(): void
     {
         $elements = [
             self::FIRST_ELEMENT,
@@ -158,7 +159,7 @@ class RegroupTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expectedSets, $regroupedElements);
     }
 
-    public function test_MatchingElements_regroupByHash_ShouldReturnSetWithMathingElements()
+    public function test_MatchingElements_regroupByHash_ShouldReturnSetWithMathingElements(): void
     {
         $elements = [
             self::FIRST_MATCH,
