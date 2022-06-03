@@ -21,14 +21,13 @@ class Regroup
                         if ($matchedSet === false) {
                             $sets[$setIndex][] = $element;
                             $matchedSet = $setIndex;
-                            break;
                         } else {
                             foreach ($set as $mergedSetMember) {
                                 $sets[$matchedSet][] = $mergedSetMember;
                             }
                             unset($sets[$setIndex]);
-                            break;
                         }
+                        break;
                     }
                 }
             }
